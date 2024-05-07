@@ -18,10 +18,10 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::315423322486:role/cl-labs-role-github
+          role-to-assume: arn:aws:iam::430825435174:role/GitHubAction-AssumeRoleWithAction
           aws-region: us-east-1
       - name: Build
         run: mkdocs build --clean
       - name: Publish
         run: |
-          aws s3 sync site s3://labguides-clus24/${{ github.event.repository.name }}
+          aws s3 sync site s3://gde-demo-guides/${{ github.event.repository.name }}
